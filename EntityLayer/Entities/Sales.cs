@@ -14,6 +14,7 @@ namespace EntityLayer.Entities
         //
         [Display(Name = "Ürün")]
         public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
 
         //
         [Display(Name = "Adet")]
@@ -30,9 +31,8 @@ namespace EntityLayer.Entities
         //
         [Display(Name = "Resim")]
         public string Image { get; set; }
+        
 
-        //
-        [Display(Name = "Kullanıcı")]
         public int UserId { get; set; }
     }
 }

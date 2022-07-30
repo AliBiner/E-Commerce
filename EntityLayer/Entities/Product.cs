@@ -49,15 +49,14 @@ namespace EntityLayer.Entities
         [Display(Name = "Resim")]
         public string Image { get; set; }
 
-        //
-        [Required(ErrorMessage = "Boş Geçilemez")]
-        [Display(Name = "Adet")]
-        public int Quantity { get; set; }
 
         //
         [Required(ErrorMessage = "Boş Geçilemez")]
         [Display(Name = "Kategori")]
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
+
+        public virtual List<Cart> Cart { get; set; }
+        public virtual List<Sales> Sales { get; set; }
     }
 }
