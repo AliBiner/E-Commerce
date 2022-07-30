@@ -20,7 +20,7 @@ namespace E_Shop.Controllers
             {
                 var username = User.Identity.Name;
                 var user = db.Users.FirstOrDefault(x => x.Email == username);
-                var model = db.Carts.Where(x => x.UserId == user.Id).ToList().ToPagedList(sayfa, 5);
+                var model = db.Sales.Where(x => x.UserId == user.Id).ToList().ToPagedList(sayfa, 5);
                 return View(model);
             }
             
@@ -65,6 +65,59 @@ namespace E_Shop.Controllers
                 ViewBag.islem = "Satın Alma İşlemi Başarısız";
             }
             return View("islem");
+        }
+
+        public ActionResult BuyAll(decimal? Tutar)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var username = User.Identity.Name;
+                var user = db.Users.FirstOrDefault(x => x.Email == username);
+                var model = db.Carts.Where(x => x.UserId == user.Id).ToList();
+                var userid = db.Carts.FirstOrDefault(x => x.UserId == user.Id);
+                if (model != null)
+                {
+                    if (userid == null)
+                    {
+                        ViewBag.Tutar = "Sepetinizde ürün bulunmamaktadır.";
+                    }
+                    else if (userid!=null)
+                    {
+                        Tutar = db.Carts.Where(x => x.UserId == userid.UserId).Sum(x => x.Product.Price * x.Quantity);
+                        ViewBag.Tutar = "Toplam Tutar =" + Tutar + " TL";
+                    }
+                    return View(model);
+                }
+                return View();
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        public ActionResult BuyAll2()
+        {
+            var username = User.Identity.Name;
+            var user = db.Users.FirstOrDefault(x => x.Email == username);
+            var model = db.Carts.Where(x => x.UserId == user.Id).ToList();
+            int row = 0;
+            foreach (var item in model)
+            {
+                var satis = new Sales
+                {
+                    UserId = model[row].UserId,
+                    ProductId = model[row].ProductId,
+                    Quantity = model[row].Quantity,
+                    Price = model[row].Price,
+                    Image = model[row].Image,
+                    Date = DateTime.Now,
+                };
+                db.Sales.Add(satis);
+                db.SaveChanges();
+                row++;
+            }
+            db.Carts.RemoveRange(model);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Cart");
         }
     }
 }

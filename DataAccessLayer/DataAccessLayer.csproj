@@ -51,6 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\DataContext.cs" />
+    <Compile Include="Migrations\202207302141181_userpass.cs" />
+    <Compile Include="Migrations\202207302141181_userpass.Designer.cs">
+      <DependentUpon>202207302141181_userpass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +67,11 @@
       <Project>{6510a839-64a8-4800-a86b-4b2fccb13e15}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202207302141181_userpass.resx">
+      <DependentUpon>202207302141181_userpass.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

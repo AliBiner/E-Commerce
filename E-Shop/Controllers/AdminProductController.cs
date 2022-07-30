@@ -12,6 +12,7 @@ using PagedList.Mvc;
 
 namespace E_Shop.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminProductController : Controller
     {
         // GET: AdminProduct
@@ -114,6 +115,24 @@ namespace E_Shop.Controllers
             ModelState.AddModelError("", "Hata Oluştu.");
             return View(update);
             
+        }
+
+        public ActionResult CriticalStock()
+        {
+            var kritik = db.Products.Where(x => x.Stock <= 50).ToList();
+            return View(kritik);
+        }
+
+        public PartialViewResult StockCount()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var count = db.Products.Where(x => x.Stock < 50).Count();
+                ViewBag.count = count;
+                var azalan = db.Products.Where(x => x.Stock == 50).Count();
+                ViewBag.azalan = azalan;
+            }
+            return PartialView();
         }
 
     }

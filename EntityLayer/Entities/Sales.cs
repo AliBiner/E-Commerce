@@ -34,5 +34,6 @@ namespace EntityLayer.Entities
         
 
         public int UserId { get; set; }
+        public virtual User User { get; set; }
     }
 }

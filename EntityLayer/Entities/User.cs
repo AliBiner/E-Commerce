@@ -24,10 +24,10 @@ namespace EntityLayer.Entities
         public string SurName { get; set; }
 
         //
-        [Required(ErrorMessage = "Boş Geçilemez")]
-        [Display(Name = "E-Mail")]
-        [StringLength(50, ErrorMessage = " Max. 50 Karakter Olamalıdır")]
-        [EmailAddress(ErrorMessage = "E-Mail Formatı Şeklinde Giriniz.")]
+        //[Required(ErrorMessage = "Boş Geçilemez")]
+        //[Display(Name = "E-Mail")]
+        //[StringLength(50, ErrorMessage = " Max. 50 Karakter Olamalıdır")]
+        //[EmailAddress(ErrorMessage = "E-Mail Formatı Şeklinde Giriniz.")]
         public string Email { get; set; }
 
         //
@@ -37,18 +37,18 @@ namespace EntityLayer.Entities
         public string UserName { get; set; }
 
         //
-        [Required(ErrorMessage = "Boş Geçilemez")]
-        [Display(Name = "Şifre")]
-        [StringLength(50, ErrorMessage = " Max. 50 Karakter Olamalıdır")]
-        [DataType(DataType.Password)]
+        //[Required(ErrorMessage = "Boş Geçilemez")]
+        //[Display(Name = "Şifre")]
+        //[StringLength(50, ErrorMessage = " Max. 50 Karakter Olamalıdır")]
+        //[DataType(DataType.Password)]
         public string Password { get; set; }
 
         //
-        [Required(ErrorMessage = "Boş Geçilemez")]
-        [Display(Name = "Şifre Tekrar")]
-        [StringLength(50, ErrorMessage = " Max. 50 Karakter Olamalıdır")]
-        [DataType(DataType.Password)]
-        [Compare("Password",ErrorMessage ="Şifreler Uyuşmuyor")]
+        //[Required(ErrorMessage = "Boş Geçilemez")]
+        //[Display(Name = "Şifre Tekrar")]
+        //[StringLength(50, ErrorMessage = " Max. 50 Karakter Olamalıdır")]
+        //[DataType(DataType.Password)]
+        //[Compare("Password",ErrorMessage ="Şifreler Uyuşmuyor")]
         public string RePassword { get; set; }
 
         //

@@ -11,6 +11,7 @@ using PagedList.Mvc;
 
 namespace E_Shop.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         DataContext db = new DataContext();
@@ -33,6 +34,20 @@ namespace E_Shop.Controllers
             return RedirectToAction("Comment");
         }
 
-        
+        public ActionResult UserList()
+        {
+            var user = db.Users.Where(x => x.Role == "User").ToList();
+            return View(user);
+        }
+
+        public ActionResult UserDelete(int id)
+        {
+            var userid = db.Users.Where(x => x.Id == id).FirstOrDefault();
+            db.Users.Remove(userid);
+            db.SaveChanges();
+            return RedirectToAction("UserList");
+        }
+
+
     }
 }
