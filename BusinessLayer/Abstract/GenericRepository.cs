@@ -17,6 +17,7 @@ namespace BusinessLayer.Abstract
         public GenericRepository()
         {
             data = db.Set<T>();
+            data = db.Set<T>();
         }
         public void Delete(T p)
         {
@@ -28,7 +29,7 @@ namespace BusinessLayer.Abstract
         {
             return data.Find(id);
         }
-
+        
         public void Insert(T p)
         {
             data.Add(p);

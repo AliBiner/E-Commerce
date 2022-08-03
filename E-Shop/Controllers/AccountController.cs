@@ -57,25 +57,21 @@ namespace E_Shop.Controllers
         [HttpPost]
         public ActionResult Register(User data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 db.Users.Add(data);
                 data.Role = "User";
                 db.SaveChanges();
+                TempData["AlertMessage"] = " Kayıt Başarılı";
+                
                 return RedirectToAction("Login");
+                
             }
             ModelState.AddModelError("", "Hatalı");
             return View("Login", data);
         }
-        //public ActionResult LogOut()
-        //{
-            
-        //    FormsAuthentication.SignOut();
 
-        //    return RedirectToActionPermanent("Login", "Account");
-        //}
-
-
+        
         public ActionResult LogOutt()
         {
             

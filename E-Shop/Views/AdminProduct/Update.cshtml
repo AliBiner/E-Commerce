@@ -14,60 +14,47 @@
                 <div class="form-group">
                     <label>Ad</label>
                     <input type="text" name="Name" class="form-control" value="@Model.Name" />
-                    
+
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Açıklama</label>
                     <input type="text" name="Description" class="form-control" value="@Model.Description" />
-                    
+
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Fiyat</label>
                     <input type="text" name="Price" class="form-control" value="@Model.Price" />
-                    
+
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Stok</label>
                     <input type="text" name="Stock" class="form-control" value="@Model.Stock" />
-                    
+
                 </div>
                 <br />
 
                 <div class="form-group">
                     <label>Popüler</label>
-                    @Html.EditorFor(x => x.Popular)
                     
+                    @Html.EditorFor(x => x.Popular)
+
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Onay</label>
                     @Html.EditorFor(x => x.IsApproved)
-                    
+
                 </div>
                 <br />
-                <div class="form-group">
-                    <label>Önceki Resim</label>
-                    <img src="~/Content/Image/@Model.Image" width="80" height="80" />
-                    
-                    
-                </div>
-                <br />
-                <div class="form-group">
-                    <label>Resim</label>
                 
-                    <input type="file" name="File" class="form-control" value="@Model.Image" />
-                    
-                </div>
-                <br />
 
                 <div class="form-group">
                     <label>Kategori</label>
-                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.ctgr2, new { @class = "form-control" })
-
                     
+                    @Html.DropDownListFor(x =>x.CategoryId , (List<SelectListItem>)ViewBag.ctgr2, new { @class = "form-control" })
                 </div>
                 <br />
 

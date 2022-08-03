@@ -38,7 +38,7 @@ namespace E_Shop.Controllers
                
                 db.Comments.Add(data);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index","Home");
             }
             return View();
             

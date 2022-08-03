@@ -4,12 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.Web;
 
 namespace EntityLayer.Entities
 {
     public class Product
     {
+        public Product()
+        {
+            Pictures = new List<Picture>();
+        }
         public int Id { get; set; }
 
         //
@@ -44,19 +48,25 @@ namespace EntityLayer.Entities
         [Display(Name = "Onay")]
         public bool IsApproved { get; set; }
 
-        //
-        [Required(ErrorMessage = "Boş Geçilemez")]
-        [Display(Name = "Resim")]
-        public string Image { get; set; }
-
+        
 
         //
         [Required(ErrorMessage = "Boş Geçilemez")]
         [Display(Name = "Kategori")]
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
-
         public virtual List<Cart> Cart { get; set; }
-        public virtual List<Sales> Sales { get; set; }
+        public virtual List<Sale> Sales { get; set; }
+
+        public List<Picture> Pictures { get; set; }
+
+        
+
+
+
+
+
+
+
     }
 }

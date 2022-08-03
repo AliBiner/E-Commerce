@@ -35,7 +35,7 @@
                     @Html.ValidationMessageFor(x => x.Stock, "", new { @style = "color:red" })
                 </div>
                 <br />
-               
+
                 <div class="form-group">
                     <label>Popüler</label>
                     @Html.EditorFor(x => x.Popular)
@@ -49,16 +49,17 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <label>Resim</label>
-                    <input type="file" name="File" class="form-control" />
-                    @Html.ValidationMessageFor(x => x.Image, "", new { @style = "color:red" })
+                    <label for="files">Select files:</label>
+                    <input type="file" id="files" name="File" multiple><br><br>
+                    
                 </div>
+
                 <br />
 
                 <div class="form-group">
                     <label>Kategori</label>
-                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.ctgr , new { @class = "form-control" })
-                
+                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.ctgr, new { @class = "form-control" })
+
                     @Html.ValidationMessageFor(x => x.CategoryId, "", new { @style = "color:red" })
                 </div>
                 <br />

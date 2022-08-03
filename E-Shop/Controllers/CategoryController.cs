@@ -1,4 +1,6 @@
 ﻿using BusinessLayer.Concreate;
+using DataAccessLayer.Context;
+using EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,7 @@ namespace E_Shop.Controllers
     public class CategoryController : Controller
     {
         CategoryRepository categoryRepository = new CategoryRepository();
+        DataContext db = new DataContext();
         // GET: Category
         public PartialViewResult CategoryList()
         {

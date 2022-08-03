@@ -16,13 +16,13 @@
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td>@item.Contents</td>
-    <td>@item.Product.Name</td>
-    <td>@item.User.Name</td>
-    <td>@item.Date</td>
-    <td>@Html.ActionLink("Sil", "Delete", new { item.Id }, new { @class = "btn btn-danger", onclick = "Silmek İstiyor Musunuz?" })</td>
-</tr>
+        <tr>
+            <td>@item.Contents</td>
+            <td>@item.Product.Name</td>
+            <td>@item.User.Name</td>
+            <td>@item.Date</td>
+            <td>@Html.ActionLink("Sil", "Delete", new { item.Id }, new { @class = "btn btn-danger", onclick = "Silmek İstiyor Musunuz?" })</td>
+        </tr>
     }
 </table>
-
+@Html.PagedListPager(Model, sayfa => Url.Action("Comment", new { sayfa }), PagedListRenderOptions.Classic)

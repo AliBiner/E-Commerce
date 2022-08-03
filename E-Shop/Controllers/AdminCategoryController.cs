@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concreate;
+using DataAccessLayer.Context;
 using EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace E_Shop.Controllers
     {
 
         // GET: AdminCategory
+        DataContext db = new DataContext();
         CategoryRepository categoryRepository = new CategoryRepository();
         public ActionResult Index()
         {
@@ -26,11 +28,15 @@ namespace E_Shop.Controllers
         
         [HttpPost]
 
+       
         public ActionResult Create(Category p)
         {
             if (ModelState.IsValid)
             {
+                p.Status = true;
+                
                 categoryRepository.Insert(p);
+                db.SaveChanges();
                 return RedirectToAction("Index");
 
             }
@@ -40,10 +46,13 @@ namespace E_Shop.Controllers
         }
 
         public ActionResult Delete(int id) {
-            var delete = categoryRepository.GetById(id);
-            categoryRepository.Delete(delete);
+            var kategori = db.Categories.Where(x => x.Id == id).FirstOrDefault();
+            kategori.Status = false;
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+      
 
         public ActionResult Update(int id) {
             return View(categoryRepository.GetById(id));

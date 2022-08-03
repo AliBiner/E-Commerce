@@ -42,12 +42,12 @@ namespace E_Shop.Controllers
                 if (ModelState.IsValid == true)
                 {
                     var model = db.Carts.FirstOrDefault(x => x.Id == id);
-                    var satis = new Sales
+                    var satis = new Sale
                     {
                         UserId = model.UserId,
                         ProductId = model.ProductId,
                         Quantity = model.Quantity,
-                        Image = model.Image,
+                        //SaleImage = db.Pictures.FirstOrDefault(x => x.Id == id).ToString(),
                         Price = model.Price,
                         Date = DateTime.Now,
                         
@@ -102,19 +102,21 @@ namespace E_Shop.Controllers
             int row = 0;
             foreach (var item in model)
             {
-                var satis = new Sales
+                var satis = new Sale
                 {
                     UserId = model[row].UserId,
                     ProductId = model[row].ProductId,
                     Quantity = model[row].Quantity,
                     Price = model[row].Price,
-                    Image = model[row].Image,
-                    Date = DateTime.Now,
+                    //SaleImage = model[row].CartImage,
+                Date = DateTime.Now,
                 };
                 db.Sales.Add(satis);
                 db.SaveChanges();
                 row++;
             }
+            
+            
             db.Carts.RemoveRange(model);
             db.SaveChanges();
             return RedirectToAction("Index", "Cart");

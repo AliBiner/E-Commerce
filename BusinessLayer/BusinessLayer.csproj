@@ -52,13 +52,14 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concreate\CategoryRepository.cs" />
     <Compile Include="Concreate\CommentRepository.cs" />
+    <Compile Include="Concreate\PictureRepository.cs" />
     <Compile Include="Concreate\ProductRepository.cs" />
+    <Compile Include="Concreate\SliderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{7599CB42-78CC-40FA-9889-41AB2B8D1189}</Project>
+      <Project>{7599cb42-78cc-40fa-9889-41ab2b8d1189}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">

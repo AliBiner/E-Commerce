@@ -15,11 +15,15 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            @*<td>@Html.ActionLink("Sil", "Delete", new { item.Id }, new { @class = "btn btn-danger", onclick = "Silmek İstiyor Musunuz?" })</td>*@
-            <td><a class="btn btn-danger btnDelete" data-id="@item.Id ">Sil</a></td>
-            <td><a class="btn btn-primary" href="/AdminCategory/Update/@item.Id">Güncelle</a></td>
+            @if (item.Status == true)
+            {
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                @*<td>@Html.ActionLink("Sil", "Delete", new { item.Id }, new { @class = "btn btn-danger", onclick = "Silmek İstiyor Musunuz?" })</td>*@
+                <td><a class="btn btn-danger btnDelete" data-id="@item.Id ">Sil</a></td>
+                <td><a class="btn btn-primary" href="/AdminCategory/Update/@item.Id">Güncelle</a></td>
+            }
+
         </tr>
 
     }

@@ -28,9 +28,9 @@ namespace EntityLayer.Entities
         [Display(Name = "Tarih")]
         public DateTime Date { get; set; }
 
-        //
-        [Display(Name = "Resim")]
-        public string Image { get; set; }
+
+        
+
 
         //
         [Display(Name = "Kullanıcı")]

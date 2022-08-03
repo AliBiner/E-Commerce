@@ -1,0 +1,38 @@
+﻿@model PagedList<EntityLayer.Entities.Slider>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<a href="/AdminSlider/CreateSlider" class="btn btn-primary">Slider Ekle</a>
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Resim</th>
+
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Header</td>
+            <td>@item.Description</td>
+            <td><img src="~/Content/Image/@item.Image" width="80" height="80" /></td>
+
+            <td>@Html.ActionLink("Sil", "DeleteSlider", new { item.Id }, new { @class = "btn btn-danger", onclick = "Silmek İstiyor Musunuz?" })</td>
+            <td><a class="btn btn-primary" href="/AdminSlider/UpdateSlider/@item.Id">Güncelle</a></td>
+
+
+
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.Classic)
+

@@ -2,7 +2,9 @@
 @{
     ViewBag.Title = "Index";
 }
-<a class="btn btn-primary" href="~/AdminCategory/Create">Kategori Ekle</a>
+
+<h2>@Session["Name"] @Session["SurName"] Hoşgeldiniz</h2>
+@*<a class="btn btn-primary" href="~/AdminCategory/Create">Kategori Ekle</a>
 <br />
 <br />
 <table class="table table-bordered">
@@ -17,11 +19,11 @@
         <tr>
             <td>@item.Name</td>
             <td>@item.Description</td>
-            <td>@Html.ActionLink("Sil","Delete", new {item.Id }, new { @class = "btn btn-danger" , onclick = "Silmek İstiyor Musunuz?"})</td>
+            <td>@Html.ActionLink("Sil","AdminCategory/Delete", new {item.Id }, new { @class = "btn btn-danger" , onclick = "Silmek İstiyor Musunuz?"})</td>
             <td><a class="btn btn-primary" href="/AdminController/Update/@item.Id">Güncelle</a></td>
         </tr>
 
     }
-</table>
+</table>*@
 
 

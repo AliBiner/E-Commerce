@@ -911,11 +911,13 @@
     <Compile Include="Controllers\AdminIstatisticController.cs" />
     <Compile Include="Controllers\AdminProductController.cs" />
     <Compile Include="Controllers\AdminSalesController.cs" />
+    <Compile Include="Controllers\AdminSliderController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -956,7 +958,6 @@
     <Content Include="Views\Product\ProductDetails.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Product\Comment.cshtml" />
     <Content Include="Views\Admin\Comment.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\TotalCount.cshtml" />
@@ -971,6 +972,11 @@
     <Content Include="Views\User\PasswordReset.cshtml" />
     <Content Include="Views\Admin\UserList.cshtml" />
     <Content Include="Views\AdminIstatistic\Index.cshtml" />
+    <Content Include="Views\AdminSlider\Index.cshtml" />
+    <Content Include="Views\AdminSlider\CreateSlider.cshtml" />
+    <Content Include="Views\AdminSlider\UpdateSlider.cshtml" />
+    <Content Include="Views\Slider\SliderList.cshtml" />
+    <Content Include="Views\AdminProduct\PictureList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

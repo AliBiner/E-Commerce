@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "PictureList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Resim</th>
+        <th>Güncelle</th>
+    </tr>
+    @{
+        foreach (var item in (List<SelectListItem>)ViewBag.PictureList)
+        {
+            <tr>
+                <td>@item</td>
+            </tr>
+
+        }
+    }
+
+    
+
+
+</table>

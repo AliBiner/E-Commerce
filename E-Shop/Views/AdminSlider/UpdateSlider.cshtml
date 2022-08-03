@@ -1,0 +1,54 @@
+﻿@model EntityLayer.Entities.Slider
+@{
+    ViewBag.Title = "UpdateSlider";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "btn btn-danger" })
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" name="Header" class="form-control" value="@Model.Header" />
+
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <input type="text" name="Description" class="form-control" value="@Model.Description" />
+
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <label>Önceki Resim</label>
+                    <img src="~/Content/Image/@Model.Image" width="80" height="80" />
+
+
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Resim</label>
+
+                    <input type="file" name="File" class="form-control" value="@Model.Image" />
+
+                </div>
+                <br />
+
+               
+
+
+                
+                <button class="btn btn-primary" type="submit">Güncelle</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
